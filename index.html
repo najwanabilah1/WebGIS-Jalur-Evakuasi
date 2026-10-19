@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f7f4" />
+  <meta name="description" content="Demo akademik WebGIS jalur evakuasi dengan data simulasi di Kota Bengkulu." />
+  <title>SiagaBengkulu — WebGIS Evakuasi</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <aside id="sidebar" aria-label="Panel informasi evakuasi">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true">S</div>
+      <div>
+        <p class="eyebrow">WEBGIS KEBENCANAAN</p>
+        <h1>Siaga<span>Bengkulu</span></h1>
+      </div>
+    </header>
+
+    <section class="intro">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>Dashboard jalur evakuasi</span>
+    </section>
+
+    <section class="demo-warning" aria-label="Peringatan data simulasi">
+      <span class="warning-icon" aria-hidden="true">!</span>
+      <p><strong>Demo akademik</strong><br />Lokasi, kapasitas, dan garis pada peta adalah data simulasi, bukan informasi resmi.</p>
+    </section>
+
+    <section class="stats" aria-label="Ringkasan data evakuasi">
+      <article class="stat-card">
+        <span class="stat-icon">⌖</span>
+        <span class="stat-label">Titik simulasi</span>
+        <strong id="pointCount">—</strong>
+        <small>lokasi</small>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon capacity-icon">↗</span>
+        <span class="stat-label">Total kapasitas</span>
+        <strong id="totalCapacity">—</strong>
+        <small>orang (simulasi)</small>
+      </article>
+    </section>
+
+    <section class="average-card">
+      <div>
+        <span class="stat-label">Rata-rata kapasitas</span>
+        <strong id="averageCapacity">—</strong><span> orang / titik</span>
+      </div>
+      <span class="average-badge" aria-hidden="true">↗</span>
+    </section>
+    <section class="capacity-insight" aria-label="Insight kapasitas simulasi">
+      <div><span>TERBESAR</span><strong id="highestCapacity">—</strong></div>
+      <div><span>TERKECIL</span><strong id="lowestCapacity">—</strong></div>
+    </section>
+
+    <section class="search-section">
+      <label for="searchInput">Temukan lokasi</label>
+      <div class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Cari nama titik evakuasi..." autocomplete="off" />
+      </div>
+    </section>
+
+    <button id="nearButton" type="button">
+      <span aria-hidden="true">◎</span>
+      Temukan titik terdekat
+    </button>
+    <p id="statusMessage" class="status-message" role="status" aria-live="polite">Pilih titik pada daftar atau peta.</p>
+
+    <div class="list-heading">
+      <h2>Daftar titik evakuasi</h2>
+      <span id="listCount" class="list-count">0 titik</span>
+    </div>
+    <div id="list" class="location-list"></div>
+
+    <footer class="sidebar-footer">
+      <span class="footer-mark">i</span>
+      <p>Jarak terdekat dihitung sebagai garis lurus (Haversine), bukan waktu tempuh atau rute aman.</p>
+    </footer>
+  </aside>
+
+  <main class="map-shell">
+    <div id="map" aria-label="Peta interaktif titik evakuasi simulasi di Kota Bengkulu"></div>
+    <div class="map-heading">
+      <div>
+        <span class="map-kicker">AREA SIMULASI</span>
+        <h2>Kota Bengkulu</h2>
+      </div>
+      <span class="map-status"><span class="live-dot"></span> Data demonstrasi</span>
+    </div>
+    <section id="legend" aria-label="Legenda peta">
+      <h3>Legenda peta</h3>
+      <div class="legend-item"><span class="legend-marker">1</span><span>Titik evakuasi</span></div>
+      <div class="legend-item"><span class="legend-line"></span><span>Garis ilustrasi — bukan rute</span></div>
+      <p>Klik marker untuk melihat kapasitas simulasi.</p>
+    </section>
+    <div id="infoCard" class="info-card" role="dialog" aria-labelledby="cardTitle" aria-hidden="true">
+      <button id="closeCard" class="close-card" type="button" aria-label="Tutup detail">×</button>
+      <span class="card-kicker">TITIK EVAKUASI SIMULASI</span>
+      <h3 id="cardTitle"></h3>
+      <p id="cardAddress" class="card-area"></p>
+      <div class="card-capacity"><span>Kapasitas simulasi</span><strong id="cardCapacity"></strong></div>
+      <p id="cardCoords" class="card-coords"></p>
+      <a id="gmapsButton" href="#" target="_blank" rel="noopener noreferrer" class="gmaps-btn">Buka koordinat di Google Maps ↗</a>
+    </div>
+  </main>
+</body>
+</html>

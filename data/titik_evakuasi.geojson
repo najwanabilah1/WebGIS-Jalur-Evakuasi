@@ -1,0 +1,64 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Titik evakuasi simulasi SiagaBengkulu",
+    "is_demo_data": true,
+    "warning": "Seluruh nama, koordinat, dan kapasitas hanya untuk demonstrasi akademik. Bukan informasi evakuasi resmi."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Titik Evakuasi A",
+        "area": "Kawasan Teluk Segara (simulasi)",
+        "capacity": 180
+      },
+      "geometry": { "type": "Point", "coordinates": [102.2653, -3.8005] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Titik Evakuasi B",
+        "area": "Kawasan Ratu Samban (simulasi)",
+        "capacity": 250
+      },
+      "geometry": { "type": "Point", "coordinates": [102.2784, -3.7928] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Titik Evakuasi C",
+        "area": "Kawasan Ratu Agung (simulasi)",
+        "capacity": 140
+      },
+      "geometry": { "type": "Point", "coordinates": [102.2551, -3.7862] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Titik Evakuasi D",
+        "area": "Kawasan Singaran Pati (simulasi)",
+        "capacity": 320
+      },
+      "geometry": { "type": "Point", "coordinates": [102.2926, -3.8157] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Titik Evakuasi E",
+        "area": "Nusa Indah, Ratu Samban (simulasi)",
+        "capacity": 210
+      },
+      "geometry": { "type": "Point", "coordinates": [102.2799848, -3.8075155] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Titik Evakuasi F",
+        "area": "Bajak, Teluk Segara (simulasi)",
+        "capacity": 160
+      },
+      "geometry": { "type": "Point", "coordinates": [102.2600, -3.7859] }
+    }
+  ]
+}
